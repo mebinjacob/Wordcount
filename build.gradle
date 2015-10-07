@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group='lab3'
+sourceCompatibility = 1.8
+version = '1.0'
+
+eclipse {
+    classpath {
+       downloadSources=true
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'hadoop-lab',
+                   'Implementation-Version': version
+    }
+    into('lib') {
+        from 'lib'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'com.google.guava:guava:12.0',
+			'org.apache.hadoop:hadoop-core:1.2.1'
+			
+	
+	testCompile	'org.apache.mrunit:mrunit:1.1.0', 
+	 			'junit:junit:4.12',
+	 			'org.hamcrest:hamcrest-all:1.3',
+	 			'org.apache.hadoop:hadoop-test:1.2.1',
+	 			'com.sun.jersey:jersey-core:1.19'
+}
+
