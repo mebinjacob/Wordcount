@@ -1,9 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-
-group='lab3'
-sourceCompatibility = 1.8
+group='hadoop'
+sourceCompatibility = 1.7
 version = '1.0'
+
 
 eclipse {
     classpath {
@@ -13,11 +13,7 @@ eclipse {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'hadoop-lab',
-                   'Implementation-Version': version
-    }
-    into('lib') {
-        from 'lib'
+        attributes 'Main-Class':'wordcount.WordCount'
     }
 }
 
